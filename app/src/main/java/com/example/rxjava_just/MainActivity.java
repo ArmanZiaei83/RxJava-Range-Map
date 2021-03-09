@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         MainViewModel mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
         mainViewModel.getObservable(preparetoDo());
+        makeToast("Observables Are Ready .. .. .. ");
     }
 
     private List<ToDo> preparetoDo() {
@@ -37,5 +39,10 @@ public class MainActivity extends AppCompatActivity {
         toDos.add(new ToDo("lap lap lap" , true));
 
         return toDos;
+    }
+
+    public void makeToast (String message ){
+
+        Toast.makeText(this , message , Toast.LENGTH_SHORT).show();
     }
 }

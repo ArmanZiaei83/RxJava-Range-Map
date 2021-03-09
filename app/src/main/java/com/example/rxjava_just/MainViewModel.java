@@ -1,5 +1,7 @@
 package com.example.rxjava_just;
 
+import android.widget.Toast;
+
 import androidx.lifecycle.ViewModel;
 
 import java.util.List;
@@ -22,9 +24,8 @@ public class MainViewModel extends ViewModel {
                     @Override
                     public ToDo apply(Integer integer) throws Throwable {
 
-                        System.out.println("Observable : " + String.valueOf(integer));
                         System.out.println("toDo Name : " + toDo.get(integer).getName());
-                        return null;
+                        return toDo.get(integer);
                     }
                 }).observeOn(Schedulers.io())
                 .subscribeOn(AndroidSchedulers.mainThread());
@@ -50,5 +51,7 @@ public class MainViewModel extends ViewModel {
                 System.out.println("Completed . . .");
             }
         });
+
     }
+
 }
