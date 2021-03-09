@@ -14,7 +14,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MainViewModel extends ViewModel {
 
-    public void getObservable(ToDo toDo) {
+    public void getObservable(List<ToDo> toDo) {
 
         Observable<ToDo> toDoObservable = Observable
                 .range(0,9)
@@ -23,7 +23,7 @@ public class MainViewModel extends ViewModel {
                     public ToDo apply(Integer integer) throws Throwable {
 
                         System.out.println("Observable : " + String.valueOf(integer));
-                        System.out.println("toDo Name : " + toDo.getName());
+                        System.out.println("toDo Name : " + toDo.get(integer).getName());
                         return null;
                     }
                 }).observeOn(Schedulers.io())
