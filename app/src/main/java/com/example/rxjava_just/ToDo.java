@@ -9,4 +9,8 @@ public class ToDo {
         this.name = name;
         this.isDoneOrNot = isDoneOrNot;
     }
+
+    public String getName() {
+        return name;
+    }
 }
